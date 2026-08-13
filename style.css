@@ -293,23 +293,66 @@ body {
   margin: 0;
 }
 
-/* BRANDS */
+/* BRANDS SECTION WITH BACKDROP IMAGES */
 .light {
   background: #f7f6f2;
 }
 
 .brands {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
 }
 
-.brands div {
-  background: #ffffff;
+.brand-card {
+  position: relative;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
   border: 1px solid #dddddd;
-  padding: 22px 10px;
-  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.brand-card.dulux {
+  background-image: url('dulux.jpg.jpeg');
+}
+
+.brand-card.diamond {
+  background-image: url('diamond.jpg.jpeg');
+}
+
+.brand-card.burj {
+  background-image: url('burj.jpg.jpeg');
+}
+
+.brand-card.nippon { background-color: #d32f2f; }
+.brand-card.ici { background-color: #0288d1; }
+.brand-card.gobis { background-color: #388e3c; }
+
+.brand-card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.brand-card .brand-name {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 22px;
   font-weight: 800;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* ABOUT + CONTACT */
@@ -412,7 +455,7 @@ footer strong {
   }
 
   .brands {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .hero {
