@@ -19,12 +19,13 @@ body {
   margin: auto;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: rgba(255, 255, 255, 0.97);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -34,6 +35,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  position: relative;
 }
 
 .logo {
@@ -66,7 +68,7 @@ body {
 
 .location-btn,
 .whatsapp-btn {
-  padding: 10px 14px;
+  padding: 10px 14px !important;
   border-radius: 6px;
 }
 
@@ -81,18 +83,21 @@ body {
   font-weight: 700;
 }
 
-/* MOBILE MENU BUTTON */
+/* ================= MOBILE MENU BUTTON ================= */
+
 .menu-btn {
   display: none;
   border: 0;
   background: transparent;
-  font-size: 28px;
+  font-size: 30px;
   cursor: pointer;
   padding: 8px;
   color: #111111;
+  line-height: 1;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero {
   padding: 95px 0 75px;
   background: linear-gradient(180deg, #faf9f6, #ffffff);
@@ -162,45 +167,88 @@ body {
   color: #ffffff;
 }
 
-/* HERO MAIN PHOTO CARD */
-.hero-card.main-shelf-card {
-  position: relative;
-  background-image: url('dulux.jpg.jpeg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
+/* ================= PAINT PRODUCT CARD ================= */
+
+.hero-card {
+  background: #f7f6f2;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+  padding: 25px;
   min-height: 380px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 25px;
-  border: 1px solid #dddddd;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-.shelf-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.paint-products {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  min-height: 260px;
+}
+
+.product {
+  width: 31%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product .lid {
+  width: 85%;
+  height: 15px;
+  background: #333333;
+  border-radius: 8px 8px 3px 3px;
+  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25);
+}
+
+.product .can {
   width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.75) 100%);
-  z-index: 1;
-}
-
-.hero-card.main-shelf-card > .hero-card-tag {
-  position: relative;
-  z-index: 2;
+  height: 175px;
+  border-radius: 8px 8px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   color: #ffffff;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
-  font-size: 14px;
-  margin: 0;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
-/* SECTIONS */
+.product .can span {
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.product .can small {
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.product.dulux .can {
+  background: linear-gradient(160deg, #e3262e, #9d1016);
+}
+
+.product.diamond .can {
+  background: linear-gradient(160deg, #eeeeee, #777777);
+  color: #111111;
+}
+
+.product.burj .can {
+  background: linear-gradient(160deg, #d99a35, #754509);
+}
+
+.hero-card > p {
+  text-align: center;
+  font-weight: 700;
+  margin: 20px 0 0;
+}
+
+/* ================= SECTIONS ================= */
+
 .section {
   padding: 90px 0;
 }
@@ -213,7 +261,8 @@ body {
   margin: 0 0 35px;
 }
 
-/* SERVICE CARDS */
+/* ================= SERVICE CARDS ================= */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -224,6 +273,7 @@ body {
   border: 1px solid #e5e5e5;
   padding: 28px;
   min-height: 220px;
+  background: #ffffff;
 }
 
 .icon {
@@ -241,7 +291,8 @@ body {
   margin: 0;
 }
 
-/* BRANDS SECTION WITH BACKDROP IMAGES */
+/* ================= BRANDS ================= */
+
 .light {
   background: #f7f6f2;
 }
@@ -252,58 +303,21 @@ body {
   gap: 15px;
 }
 
-.brand-card {
-  position: relative;
-  height: 150px;
+.brands > div {
+  min-height: 120px;
+  border: 1px solid #dddddd;
   border-radius: 8px;
-  overflow: hidden;
+  background: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #dddddd;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.brand-card.dulux {
-  background-image: url('dulux.jpg.jpeg');
-}
-
-.brand-card.diamond {
-  background-image: url('diamond.jpg.jpeg');
-}
-
-.brand-card.burj {
-  background-image: url('burj.jpg.jpeg');
-}
-
-.brand-card.nippon { background-color: #d32f2f; }
-.brand-card.ici { background-color: #0288d1; }
-.brand-card.gobis { background-color: #388e3c; }
-
-.brand-card .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1;
-}
-
-.brand-card .brand-name {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
   font-size: 22px;
   font-weight: 800;
-  font-style: italic;
-  letter-spacing: 1px;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
-/* ABOUT + CONTACT */
+/* ================= ABOUT + CONTACT ================= */
+
 .about-grid,
 .contact-grid {
   display: grid;
@@ -338,7 +352,8 @@ body {
   margin-top: 0;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
+
 .footer-wrap {
   padding: 30px 0;
   display: flex;
@@ -352,14 +367,18 @@ footer strong {
   color: #111111;
 }
 
-/* =========================
-   MOBILE RESPONSIVE MENU
-   ========================= */
+/* ================= MOBILE ================= */
 
 @media (max-width: 850px) {
 
+  .nav-wrap {
+    min-height: 70px;
+  }
+
   .menu-btn {
     display: block;
+    position: relative;
+    z-index: 1002;
   }
 
   .nav {
@@ -367,23 +386,26 @@ footer strong {
     position: absolute;
     left: 0;
     right: 0;
-    top: 76px;
+    top: 70px;
+    width: 100%;
     background: #ffffff;
-    padding: 20px;
+    padding: 15px;
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 5px;
     border-bottom: 1px solid #dddddd;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    z-index: 1001;
   }
 
   .nav.open {
-    display: flex;
+    display: flex !important;
   }
 
   .nav a {
     display: block;
     padding: 12px 10px;
+    font-size: 15px;
   }
 
   .location-btn,
@@ -408,13 +430,43 @@ footer strong {
   .hero {
     padding-top: 60px;
   }
-}
-
-/* SMALL MOBILE */
-@media (max-width: 520px) {
 
   .hero h1 {
-    font-size: 45px;
+    font-size: 52px;
+  }
+
+  .hero-card {
+    min-height: 330px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 520px) {
+
+  .container {
+    width: 90%;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero h1 {
+    font-size: 43px;
+    letter-spacing: -1px;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  .section {
+    padding: 65px 0;
   }
 
   .section h2 {
@@ -427,6 +479,27 @@ footer strong {
 
   .brands {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brands > div {
+    min-height: 100px;
+    font-size: 18px;
+  }
+
+  .paint-products {
+    gap: 6px;
+  }
+
+  .product .can {
+    height: 140px;
+  }
+
+  .product .can span {
+    font-size: 13px;
+  }
+
+  .product .can small {
+    font-size: 9px;
   }
 
   .footer-wrap {
