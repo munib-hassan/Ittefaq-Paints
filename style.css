@@ -83,7 +83,7 @@ body {
   font-weight: 700;
 }
 
-/* ================= MOBILE MENU BUTTON ================= */
+/* ================= MOBILE MENU ================= */
 
 .menu-btn {
   display: none;
@@ -105,8 +105,8 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 55px;
   align-items: center;
 }
 
@@ -167,84 +167,122 @@ body {
   color: #ffffff;
 }
 
-/* ================= PAINT PRODUCT CARD ================= */
+/* =====================================================
+   THREE REAL PAINT PICTURES - HERO
+   ===================================================== */
 
-.hero-card {
-  background: #f7f6f2;
-  border: 1px solid #dddddd;
+.three-paint-images {
+  position: relative;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 25px 10px 55px;
+}
+
+.paint-image {
+  position: relative;
+  width: 32%;
+  height: 350px;
   border-radius: 14px;
-  padding: 25px;
-  min-height: 380px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: #eeeeee;
+  border: 1px solid #dddddd;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.paint-products {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 12px;
-  min-height: 260px;
-}
-
-.product {
-  width: 31%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.product .lid {
-  width: 85%;
-  height: 15px;
-  background: #333333;
-  border-radius: 8px 8px 3px 3px;
-  box-shadow: inset 0 -2px 3px rgba(0,0,0,0.25);
-}
-
-.product .can {
+.paint-image img {
   width: 100%;
-  height: 175px;
-  border-radius: 8px 8px 14px 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-weight: 800;
-  text-align: center;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.product .can span {
+.paint-image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.20);
+}
+
+/* Slightly different heights for a premium layout */
+
+.paint-left {
+  transform: translateY(15px) rotate(-2deg);
+}
+
+.paint-center {
+  height: 380px;
+  z-index: 2;
+}
+
+.paint-right {
+  transform: translateY(15px) rotate(2deg);
+}
+
+.paint-left:hover {
+  transform: translateY(7px) rotate(-2deg);
+}
+
+.paint-right:hover {
+  transform: translateY(7px) rotate(2deg);
+}
+
+/* Dark gradient at bottom of pictures */
+
+.paint-image::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* Picture labels */
+
+.paint-label {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+}
+
+.paint-label strong {
+  display: block;
   font-size: 17px;
   letter-spacing: 1px;
 }
 
-.product .can small {
+.paint-label span {
+  display: block;
   font-size: 11px;
-  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.product.dulux .can {
-  background: linear-gradient(160deg, #e3262e, #9d1016);
-}
+/* Caption */
 
-.product.diamond .can {
-  background: linear-gradient(160deg, #eeeeee, #777777);
-  color: #111111;
-}
-
-.product.burj .can {
-  background: linear-gradient(160deg, #d99a35, #754509);
-}
-
-.hero-card > p {
+.image-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
   text-align: center;
+  font-size: 13px;
   font-weight: 700;
-  margin: 20px 0 0;
+  color: #555555;
 }
 
 /* ================= SECTIONS ================= */
@@ -300,20 +338,98 @@ body {
 .brands {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 18px;
 }
 
-.brands > div {
-  min-height: 120px;
+.brand-card {
+  position: relative;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
   border: 1px solid #dddddd;
-  border-radius: 8px;
-  background: #ffffff;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
+
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
+}
+
+/* ACTUAL UPLOADED PICTURES */
+
+.brand-card.dulux {
+  background-image: url("dulux.jpg.jpeg");
+}
+
+.brand-card.diamond {
+  background-image: url("diamond.jpg.jpeg");
+}
+
+.brand-card.burj {
+  background-image: url("burj.jpg.jpeg");
+}
+
+/* Other brands */
+
+.brand-card.nippon {
+  background-image: linear-gradient(
+    135deg,
+    #c62828,
+    #7f0000
+  );
+}
+
+.brand-card.ici {
+  background-image: linear-gradient(
+    135deg,
+    #1976d2,
+    #063b72
+  );
+}
+
+.brand-card.gobis {
+  background-image: linear-gradient(
+    135deg,
+    #388e3c,
+    #174d19
+  );
+}
+
+/* Dark overlay */
+
+.brand-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.brand-card:hover .overlay {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+/* Brand name */
+
+.brand-name {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 25px;
   font-weight: 800;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 /* ================= ABOUT + CONTACT ================= */
@@ -367,7 +483,9 @@ footer strong {
   color: #111111;
 }
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   TABLET
+   ===================================================== */
 
 @media (max-width: 850px) {
 
@@ -388,13 +506,17 @@ footer strong {
     right: 0;
     top: 70px;
     width: 100%;
+
     background: #ffffff;
     padding: 15px;
+
     flex-direction: column;
     align-items: stretch;
     gap: 5px;
+
     border-bottom: 1px solid #dddddd;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
     z-index: 1001;
   }
 
@@ -419,14 +541,6 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .brands {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .hero {
     padding-top: 60px;
   }
@@ -435,12 +549,31 @@ footer strong {
     font-size: 52px;
   }
 
-  .hero-card {
-    min-height: 330px;
+  .three-paint-images {
+    min-height: 390px;
   }
+
+  .paint-image {
+    height: 310px;
+  }
+
+  .paint-center {
+    height: 340px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brands {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
 }
 
-/* ================= SMALL MOBILE ================= */
+/* =====================================================
+   SMALL MOBILE
+   ===================================================== */
 
 @media (max-width: 520px) {
 
@@ -477,32 +610,68 @@ footer strong {
     grid-template-columns: 1fr;
   }
 
+  /* THREE IMAGES ON MOBILE */
+
+  .three-paint-images {
+    min-height: 360px;
+    gap: 5px;
+    padding: 15px 0 45px;
+  }
+
+  .paint-image {
+    width: 33.33%;
+    height: 270px;
+    border-radius: 9px;
+  }
+
+  .paint-center {
+    height: 300px;
+  }
+
+  .paint-left {
+    transform: translateY(12px) rotate(-2deg);
+  }
+
+  .paint-right {
+    transform: translateY(12px) rotate(2deg);
+  }
+
+  .paint-label {
+    left: 4px;
+    right: 4px;
+    bottom: 7px;
+  }
+
+  .paint-label strong {
+    font-size: 11px;
+  }
+
+  .paint-label span {
+    font-size: 8px;
+  }
+
+  .image-caption {
+    font-size: 10px;
+  }
+
+  /* BRANDS */
+
   .brands {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
-  .brands > div {
-    min-height: 100px;
-    font-size: 18px;
+  .brand-card {
+    height: 130px;
+    border-radius: 9px;
   }
 
-  .paint-products {
-    gap: 6px;
-  }
-
-  .product .can {
-    height: 140px;
-  }
-
-  .product .can span {
-    font-size: 13px;
-  }
-
-  .product .can small {
-    font-size: 9px;
+  .brand-name {
+    font-size: 17px;
   }
 
   .footer-wrap {
     flex-direction: column;
   }
+
 }
