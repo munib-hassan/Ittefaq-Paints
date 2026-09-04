@@ -14,10 +14,15 @@ body {
   line-height: 1.6;
 }
 
+img {
+  max-width: 100%;
+}
+
 .container {
   width: min(1120px, 92%);
   margin: auto;
 }
+
 
 /* ================= HEADER ================= */
 
@@ -83,6 +88,7 @@ body {
   font-weight: 700;
 }
 
+
 /* ================= MOBILE MENU ================= */
 
 .menu-btn {
@@ -96,18 +102,90 @@ body {
   line-height: 1;
 }
 
+
 /* ================= HERO ================= */
 
 .hero {
-  padding: 95px 0 75px;
-  background: linear-gradient(180deg, #faf9f6, #ffffff);
+  padding: 55px 0 70px;
+  background: linear-gradient(
+    180deg,
+    #faf9f6,
+    #ffffff
+  );
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 55px;
-  align-items: center;
+
+/* MAIN SHOP IMAGE */
+
+.hero-shop-image {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 440px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #eeeeee;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+}
+
+.hero-shop-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* IMAGE DARK OVERLAY */
+
+.hero-shop-image::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.70),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+
+/* IMAGE TEXT */
+
+.hero-shop-label {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  bottom: 22px;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.hero-shop-label h2 {
+  margin: 0 0 4px;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.hero-shop-label p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+  padding: 90px 0;
 }
 
 .eyebrow {
@@ -119,19 +197,258 @@ body {
   margin: 0 0 14px;
 }
 
-.hero h1 {
+.section h2 {
   font-family: Georgia, serif;
-  font-size: clamp(48px, 7vw, 78px);
-  line-height: 1.02;
-  margin: 0 0 22px;
+  font-size: 46px;
+  line-height: 1.1;
   font-weight: 500;
-  letter-spacing: -2px;
+  margin: 0 0 35px;
 }
 
-.hero-text {
-  font-size: 18px;
-  max-width: 620px;
+
+/* ================= SERVICE CARDS ================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  padding: 28px;
+  min-height: 220px;
+  background: #ffffff;
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+}
+
+.card p {
+  color: #666666;
+  margin: 0;
+}
+
+
+/* ================= BRANDS ================= */
+
+.light {
+  background: #f7f6f2;
+}
+
+.brands {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.brand-card {
+  position: relative;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #dddddd;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-size: cover;
+  background-position: center;
+
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
+
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
+}
+
+
+/* UPLOADED BRAND PICTURES */
+
+.brand-card.dulux {
+  background-image: url("dulux.jpg.jpeg");
+}
+
+.brand-card.diamond {
+  background-image: url("diamond.jpg.jpeg");
+}
+
+.brand-card.burj {
+  background-image: url("burj.jpg.jpeg");
+}
+
+
+/* OTHER BRANDS */
+
+.brand-card.nippon {
+  background-image: linear-gradient(
+    135deg,
+    #c62828,
+    #7f0000
+  );
+}
+
+.brand-card.ici {
+  background-image: linear-gradient(
+    135deg,
+    #1976d2,
+    #063b72
+  );
+}
+
+.brand-card.gobis {
+  background-image: linear-gradient(
+    135deg,
+    #388e3c,
+    #174d19
+  );
+}
+
+
+/* BRAND OVERLAY */
+
+.brand-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: 1;
+}
+
+.brand-card:hover .overlay {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+
+/* BRAND NAME */
+
+.brand-name {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+
+/* ================= SECOND SHOP PHOTO ================= */
+
+.shop-photo-section {
+  background: #ffffff;
+}
+
+.shop-photo {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 440px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #eeeeee;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+.shop-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.shop-photo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 38%;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.70),
+    transparent
+  );
+}
+
+.shop-photo-label {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  bottom: 22px;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.shop-photo-label strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 28px;
+}
+
+.shop-photo-label span {
+  font-size: 14px;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about-grid,
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.about-grid p {
   color: #555555;
+  max-width: 700px;
+}
+
+.info-box,
+.contact-card {
+  border: 1px solid #dddddd;
+  padding: 28px;
+  background: #fafafa;
+}
+
+.info-box a,
+.contact-card a {
+  color: #111111;
+  font-weight: 700;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact {
+  background: #eceae4;
+}
+
+.contact-card p {
+  margin-top: 0;
 }
 
 .hero-actions {
@@ -164,322 +481,63 @@ body {
 
 .whatsapp-large {
   background: #25d366;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
-/* =====================================================
-   THREE REAL PAINT PICTURES - HERO
-   ===================================================== */
-
-.three-paint-images {
-  position: relative;
-  min-height: 430px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 25px 10px 55px;
-}
-
-.paint-image {
-  position: relative;
-  width: 32%;
-  height: 350px;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #eeeeee;
-  border: 1px solid #dddddd;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.paint-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.paint-image:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.20);
-}
-
-.paint-left {
-  transform: translateY(15px) rotate(-2deg);
-}
-
-.paint-center {
-  height: 380px;
-  z-index: 2;
-}
-
-.paint-right {
-  transform: translateY(15px) rotate(2deg);
-}
-
-.paint-left:hover {
-  transform: translateY(7px) rotate(-2deg);
-}
-
-.paint-right:hover {
-  transform: translateY(7px) rotate(2deg);
-}
-
-/* Dark gradient at bottom of pictures */
-
-.paint-image::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 35%;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65),
-    transparent
-  );
-  pointer-events: none;
-}
-
-/* Picture labels */
-
-.paint-label {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  z-index: 3;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-}
-
-.paint-label strong {
-  display: block;
-  font-size: 17px;
-  letter-spacing: 1px;
-}
-
-.paint-label span {
-  display: block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Caption */
-
-.image-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  color: #555555;
-}
-
-/* ================= SECTIONS ================= */
-
-.section {
-  padding: 90px 0;
-}
-
-.section h2 {
-  font-family: Georgia, serif;
-  font-size: 46px;
-  line-height: 1.1;
-  font-weight: 500;
-  margin: 0 0 35px;
-}
-
-/* ================= SERVICE CARDS ================= */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.card {
-  border: 1px solid #e5e5e5;
-  padding: 28px;
-  min-height: 220px;
-  background: #ffffff;
-}
-
-.icon {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
-
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 19px;
-}
-
-.card p {
-  color: #666666;
-  margin: 0;
-}
-
-/* ================= BRANDS ================= */
-
-.light {
-  background: #f7f6f2;
-}
-
-.brands {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.brand-card {
-  position: relative;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #dddddd;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background-size: cover;
-  background-position: center;
-
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
-
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
-}
-
-.brand-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
-}
-
-/* ACTUAL UPLOADED PICTURES */
-
-.brand-card.dulux {
-  background-image: url("dulux.jpg.jpeg");
-}
-
-.brand-card.diamond {
-  background-image: url("diamond.jpg.jpeg");
-}
-
-.brand-card.burj {
-  background-image: url("burj.jpg.jpeg");
-}
-
-/* Other brands */
-
-.brand-card.nippon {
-  background-image: linear-gradient(
-    135deg,
-    #c62828,
-    #7f0000
-  );
-}
-
-.brand-card.ici {
-  background-image: linear-gradient(
-    135deg,
-    #1976d2,
-    #063b72
-  );
-}
-
-.brand-card.gobis {
-  background-image: linear-gradient(
-    135deg,
-    #388e3c,
-    #174d19
-  );
-}
-
-/* Dark overlay */
-
-.brand-card .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.30);
-  z-index: 1;
-  transition: background 0.3s ease;
-}
-
-.brand-card:hover .overlay {
-  background: rgba(0, 0, 0, 0.42);
-}
-
-/* Brand name */
-
-.brand-name {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-  font-size: 25px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-}
-
-/* ================= ABOUT + CONTACT ================= */
-
-.about-grid,
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 70px;
-  align-items: start;
-}
-
-.about-grid p {
-  color: #555555;
-  max-width: 700px;
-}
-
-.info-box,
-.contact-card {
-  border: 1px solid #dddddd;
-  padding: 28px;
-  background: #fafafa;
-}
-
-.info-box a,
-.contact-card a {
-  color: #111111;
-  font-weight: 700;
-}
-
-.contact {
-  background: #eceae4;
-}
-
-.contact-card p {
-  margin-top: 0;
-}
 
 /* ================= FOOTER ================= */
 
-.footer-wrap {
-  padding: 30px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  color: #555555;
-  font-size: 14px;
+.main-footer {
+  background: #111111;
+  color: #ffffff;
 }
 
-footer strong {
-  color: #111111;
+.footer-content {
+  padding: 55px 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 50px;
 }
+
+.footer-brand h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.footer-brand p {
+  margin: 5px 0;
+  color: #bbbbbb;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  opacity: 0.7;
+}
+
+.footer-contact p {
+  margin-top: 0;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333333;
+  padding: 20px;
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 13px;
+}
+
 
 /* =====================================================
    TABLET
@@ -533,30 +591,26 @@ footer strong {
     text-align: center;
   }
 
-  .hero-grid,
+
+  /* IMAGE */
+
+  .hero {
+    padding: 40px 0 55px;
+  }
+
+  .hero-shop-image {
+    height: 350px;
+  }
+
+  .hero-shop-label h2 {
+    font-size: 27px;
+  }
+
+
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding-top: 60px;
-  }
-
-  .hero h1 {
-    font-size: 52px;
-  }
-
-  .three-paint-images {
-    min-height: 390px;
-  }
-
-  .paint-image {
-    height: 310px;
-  }
-
-  .paint-center {
-    height: 340px;
+    gap: 35px;
   }
 
   .cards {
@@ -566,10 +620,19 @@ footer strong {
   .brands {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .shop-photo {
+    height: 350px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
+
 /* =====================================================
-   SMALL MOBILE
+   MOBILE
    ===================================================== */
 
 @media (max-width: 520px) {
@@ -578,78 +641,69 @@ footer strong {
     width: 90%;
   }
 
+
+  /* HEADER */
+
   .logo {
     font-size: 18px;
+    letter-spacing: 1px;
   }
+
+
+  /* HERO */
 
   .hero {
-    padding: 50px 0;
+    padding: 28px 0 45px;
   }
 
-  .hero h1 {
-    font-size: 43px;
-    letter-spacing: -1px;
-  }
-
-  .hero-text {
-    font-size: 16px;
-  }
-
-  .section {
-    padding: 65px 0;
-  }
-
-  .section h2 {
-    font-size: 36px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  /* THREE IMAGES ON MOBILE */
-
-  .three-paint-images {
-    min-height: 360px;
-    gap: 5px;
-    padding: 15px 0 45px;
-  }
-
-  .paint-image {
-    width: 33.33%;
-    height: 270px;
+  .hero-shop-image {
+    width: 100%;
+    height: 245px;
     border-radius: 9px;
   }
 
-  .paint-center {
-    height: 300px;
+  .hero-shop-image img {
+    object-position: center;
   }
 
-  .paint-left {
-    transform: translateY(12px) rotate(-2deg);
+  .hero-shop-label {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
   }
 
-  .paint-right {
-    transform: translateY(12px) rotate(2deg);
+  .hero-shop-label h2 {
+    font-size: 21px;
   }
 
-  .paint-label {
-    left: 4px;
-    right: 4px;
-    bottom: 7px;
-  }
-
-  .paint-label strong {
+  .hero-shop-label p {
     font-size: 11px;
   }
 
-  .paint-label span {
-    font-size: 8px;
+
+  /* SECTIONS */
+
+  .section {
+    padding: 60px 0;
   }
 
-  .image-caption {
-    font-size: 10px;
+  .section h2 {
+    font-size: 34px;
   }
+
+
+  /* SERVICES */
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    min-height: auto;
+    padding: 22px;
+  }
+
 
   /* BRANDS */
 
@@ -659,7 +713,7 @@ footer strong {
   }
 
   .brand-card {
-    height: 130px;
+    height: 135px;
     border-radius: 9px;
   }
 
@@ -667,7 +721,50 @@ footer strong {
     font-size: 17px;
   }
 
-  .footer-wrap {
+
+  /* SECOND IMAGE */
+
+  .shop-photo {
+    height: 245px;
+    border-radius: 9px;
+  }
+
+  .shop-photo-label {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
+  }
+
+  .shop-photo-label strong {
+    font-size: 21px;
+  }
+
+  .shop-photo-label span {
+    font-size: 11px;
+  }
+
+
+  /* CONTACT */
+
+  .hero-actions {
     flex-direction: column;
+  }
+
+  .hero-actions a {
+    text-align: center;
+    width: 100%;
+  }
+
+
+  /* FOOTER */
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 45px 0;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
   }
 }
