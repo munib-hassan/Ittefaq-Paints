@@ -1,3 +1,7 @@
+/* =====================================================
+   GLOBAL
+   ===================================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -20,11 +24,13 @@ img {
 
 .container {
   width: min(1120px, 92%);
-  margin: auto;
+  margin: 0 auto;
 }
 
 
-/* ================= HEADER ================= */
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 .site-header {
   position: sticky;
@@ -89,7 +95,9 @@ img {
 }
 
 
-/* ================= MOBILE MENU ================= */
+/* =====================================================
+   MOBILE MENU
+   ===================================================== */
 
 .menu-btn {
   display: none;
@@ -103,10 +111,12 @@ img {
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+   ===================================================== */
 
 .hero {
-  padding: 55px 0 70px;
+  padding: 55px 0 65px;
   background: linear-gradient(
     180deg,
     #faf9f6,
@@ -114,43 +124,49 @@ img {
   );
 }
 
-
-/* MAIN SHOP IMAGE */
-
 .hero-shop-image {
   position: relative;
   width: 100%;
-  max-width: 850px;
-  height: 440px;
+  max-width: 900px;
+
+  /* Balanced desktop height */
+  height: 420px;
+
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 12px;
+
+  border-radius: 14px;
   background: #eeeeee;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.14);
 }
 
 .hero-shop-image img {
   width: 100%;
   height: 100%;
   display: block;
+
   object-fit: cover;
   object-position: center;
 }
 
 
-/* IMAGE DARK OVERLAY */
+/* Hero dark gradient */
 
 .hero-shop-image::after {
   content: "";
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: 0;
-  height: 40%;
+
+  height: 45%;
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.70),
+    rgba(0, 0, 0, 0.72),
     transparent
   );
 
@@ -158,93 +174,238 @@ img {
 }
 
 
-/* IMAGE TEXT */
+/* Hero text */
 
 .hero-shop-label {
   position: absolute;
-  left: 25px;
-  right: 25px;
-  bottom: 22px;
+
+  left: 28px;
+  right: 28px;
+  bottom: 24px;
+
   z-index: 2;
+
   color: #ffffff;
 }
 
 .hero-shop-label h2 {
-  margin: 0 0 4px;
-  font-family: Georgia, serif;
-  font-size: 30px;
+  margin: 0 0 5px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 32px;
+  line-height: 1.15;
+
   font-weight: 500;
 }
 
 .hero-shop-label p {
   margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+
   font-size: 14px;
+  line-height: 1.5;
 }
 
 
-/* ================= SECTIONS ================= */
+/* =====================================================
+   GENERAL SECTIONS
+   ===================================================== */
 
 .section {
-  padding: 90px 0;
+  padding: 75px 0;
 }
 
 .eyebrow {
   text-transform: uppercase;
+
   letter-spacing: 2px;
+
   font-size: 12px;
+
   font-weight: 700;
+
   color: #666666;
-  margin: 0 0 14px;
+
+  margin: 0 0 12px;
 }
 
 .section h2 {
-  font-family: Georgia, serif;
-  font-size: 46px;
-  line-height: 1.1;
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 44px;
+
+  line-height: 1.15;
+
   font-weight: 500;
-  margin: 0 0 35px;
+
+  margin: 0 0 28px;
+
+  color: #171717;
 }
 
 
-/* ================= SERVICE CARDS ================= */
+/* =====================================================
+   ABOUT US
+   ===================================================== */
+
+.about-section {
+  padding-top: 70px;
+  padding-bottom: 75px;
+}
+
+.about-grid {
+  display: grid;
+
+  grid-template-columns: 1.35fr 0.65fr;
+
+  gap: 55px;
+
+  align-items: start;
+}
+
+.about-content {
+  max-width: 720px;
+}
+
+.about-content .eyebrow {
+  margin-bottom: 12px;
+}
+
+.about-content h2 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(36px, 5vw, 52px);
+
+  line-height: 1.1;
+
+  font-weight: 500;
+
+  margin: 0 0 25px;
+
+  color: #171717;
+}
+
+.about-content p {
+  margin: 0 0 20px;
+
+  color: #555555;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  max-width: 700px;
+}
+
+.about-content strong {
+  color: #222222;
+}
+
+
+/* Visit store box */
+
+.info-box {
+  border: 1px solid #dddddd;
+
+  padding: 30px;
+
+  background: #fafafa;
+
+  border-radius: 4px;
+}
+
+.info-box strong {
+  display: block;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 23px;
+
+  margin-bottom: 12px;
+}
+
+.info-box p {
+  margin: 0 0 18px;
+
+  color: #555555;
+
+  line-height: 1.7;
+}
+
+.info-box a {
+  color: #111111;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
+}
+
+
+/* =====================================================
+   SERVICE CARDS
+   ===================================================== */
 
 .cards {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
+
   gap: 18px;
 }
 
 .card {
   border: 1px solid #e5e5e5;
+
   padding: 28px;
+
   min-height: 220px;
+
   background: #ffffff;
-  transition: transform 0.25s ease,
-              box-shadow 0.25s ease;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .icon {
   font-size: 28px;
-  margin-bottom: 20px;
+
+  margin-bottom: 18px;
 }
 
 .card h3 {
   margin: 0 0 10px;
+
   font-size: 19px;
 }
 
 .card p {
   color: #666666;
+
   margin: 0;
+
+  line-height: 1.6;
 }
 
 
-/* ================= BRANDS ================= */
+/* =====================================================
+   BRANDS
+   ===================================================== */
 
 .light {
   background: #f7f6f2;
@@ -252,37 +413,50 @@ img {
 
 .brands {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+
   gap: 18px;
 }
 
 .brand-card {
   position: relative;
+
   height: 200px;
+
   border-radius: 12px;
+
   overflow: hidden;
+
   border: 1px solid #dddddd;
 
   display: flex;
+
   align-items: center;
+
   justify-content: center;
 
   background-size: cover;
+
   background-position: center;
 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.10);
+  box-shadow:
+    0 6px 15px rgba(0, 0, 0, 0.10);
 
-  transition: transform 0.3s ease,
-              box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .brand-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.16);
 }
 
 
-/* UPLOADED BRAND PICTURES */
+/* Uploaded pictures */
 
 .brand-card.dulux {
   background-image: url("dulux.jpg.jpeg");
@@ -297,40 +471,49 @@ img {
 }
 
 
-/* OTHER BRANDS */
+/* Other brands */
 
 .brand-card.nippon {
-  background-image: linear-gradient(
-    135deg,
-    #c62828,
-    #7f0000
-  );
+  background-image:
+    linear-gradient(
+      135deg,
+      #c62828,
+      #7f0000
+    );
 }
 
 .brand-card.ici {
-  background-image: linear-gradient(
-    135deg,
-    #1976d2,
-    #063b72
-  );
+  background-image:
+    linear-gradient(
+      135deg,
+      #1976d2,
+      #063b72
+    );
 }
 
 .brand-card.gobis {
-  background-image: linear-gradient(
-    135deg,
-    #388e3c,
-    #174d19
-  );
+  background-image:
+    linear-gradient(
+      135deg,
+      #388e3c,
+      #174d19
+    );
 }
 
 
-/* BRAND OVERLAY */
+/* Brand overlay */
 
 .brand-card .overlay {
   position: absolute;
+
   inset: 0;
+
   background: rgba(0, 0, 0, 0.30);
+
   z-index: 1;
+
+  transition:
+    background 0.3s ease;
 }
 
 .brand-card:hover .overlay {
@@ -338,20 +521,29 @@ img {
 }
 
 
-/* BRAND NAME */
+/* Brand name */
 
 .brand-name {
   position: relative;
+
   z-index: 2;
+
   color: #ffffff;
+
   font-size: 25px;
+
   font-weight: 800;
+
   letter-spacing: 1px;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 
-/* ================= SECOND SHOP PHOTO ================= */
+/* =====================================================
+   SECOND SHOP PHOTO
+   ===================================================== */
 
 .shop-photo-section {
   background: #ffffff;
@@ -359,52 +551,79 @@ img {
 
 .shop-photo {
   position: relative;
+
   width: 100%;
-  max-width: 850px;
-  height: 440px;
+
+  max-width: 900px;
+
+  height: 420px;
+
   margin: 0 auto;
+
   overflow: hidden;
-  border-radius: 12px;
+
+  border-radius: 14px;
+
   background: #eeeeee;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.14);
 }
 
 .shop-photo img {
   width: 100%;
+
   height: 100%;
+
   display: block;
+
   object-fit: cover;
+
   object-position: center;
 }
 
 .shop-photo::after {
   content: "";
+
   position: absolute;
+
   left: 0;
   right: 0;
   bottom: 0;
-  height: 38%;
+
+  height: 42%;
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.70),
+    rgba(0, 0, 0, 0.72),
     transparent
   );
+
+  pointer-events: none;
 }
 
 .shop-photo-label {
   position: absolute;
-  left: 25px;
-  right: 25px;
-  bottom: 22px;
+
+  left: 28px;
+  right: 28px;
+  bottom: 24px;
+
   z-index: 2;
+
   color: #ffffff;
 }
 
 .shop-photo-label strong {
   display: block;
-  font-family: Georgia, serif;
-  font-size: 28px;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 29px;
+
+  line-height: 1.2;
+
+  margin-bottom: 4px;
 }
 
 .shop-photo-label span {
@@ -412,49 +631,51 @@ img {
 }
 
 
-/* ================= ABOUT ================= */
-
-.about-grid,
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 70px;
-  align-items: start;
-}
-
-.about-grid p {
-  color: #555555;
-  max-width: 700px;
-}
-
-.info-box,
-.contact-card {
-  border: 1px solid #dddddd;
-  padding: 28px;
-  background: #fafafa;
-}
-
-.info-box a,
-.contact-card a {
-  color: #111111;
-  font-weight: 700;
-}
-
-
-/* ================= CONTACT ================= */
+/* =====================================================
+   CONTACT
+   ===================================================== */
 
 .contact {
   background: #eceae4;
 }
 
+.contact-grid {
+  display: grid;
+
+  grid-template-columns: 1.3fr 0.7fr;
+
+  gap: 60px;
+
+  align-items: start;
+}
+
+.contact-card {
+  border: 1px solid #dddddd;
+
+  padding: 30px;
+
+  background: #fafafa;
+}
+
 .contact-card p {
   margin-top: 0;
+
+  margin-bottom: 22px;
+}
+
+.contact-card a {
+  color: #111111;
+
+  font-weight: 700;
 }
 
 .hero-actions {
   display: flex;
+
   gap: 12px;
+
   flex-wrap: wrap;
+
   margin-top: 28px;
 }
 
@@ -462,62 +683,81 @@ img {
 .secondary-btn,
 .whatsapp-large {
   display: inline-block;
+
   padding: 13px 18px;
+
   border-radius: 6px;
+
   text-decoration: none;
+
   font-weight: 700;
 }
 
 .primary-btn {
   background: #151515;
+
   color: #ffffff;
 }
 
 .secondary-btn {
   border: 1px solid #cccccc;
+
   color: #222222;
+
   background: #ffffff;
 }
 
 .whatsapp-large {
   background: #25d366;
+
   color: #ffffff !important;
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+   ===================================================== */
 
 .main-footer {
   background: #111111;
+
   color: #ffffff;
 }
 
 .footer-content {
   padding: 55px 0;
+
   display: grid;
+
   grid-template-columns: 1.3fr 1fr 1fr;
+
   gap: 50px;
 }
 
 .footer-brand h3 {
   margin: 0 0 8px;
+
   font-size: 22px;
 }
 
 .footer-brand p {
   margin: 5px 0;
+
   color: #bbbbbb;
 }
 
 .footer-links {
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
 }
 
 .footer-links a,
 .footer-contact a {
   color: #ffffff;
+
   text-decoration: none;
 }
 
@@ -532,9 +772,13 @@ img {
 
 .footer-bottom {
   border-top: 1px solid #333333;
+
   padding: 20px;
+
   text-align: center;
+
   color: #aaaaaa;
+
   font-size: 13px;
 }
 
@@ -545,33 +789,46 @@ img {
 
 @media (max-width: 850px) {
 
+  /* Header */
+
   .nav-wrap {
     min-height: 70px;
   }
 
   .menu-btn {
     display: block;
+
     position: relative;
+
     z-index: 1002;
   }
 
   .nav {
     display: none;
+
     position: absolute;
+
     left: 0;
     right: 0;
+
     top: 70px;
+
     width: 100%;
 
     background: #ffffff;
+
     padding: 15px;
 
     flex-direction: column;
+
     align-items: stretch;
+
     gap: 5px;
 
     border-bottom: 1px solid #dddddd;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+      0 10px 20px rgba(0, 0, 0, 0.12);
 
     z-index: 1001;
   }
@@ -582,7 +839,9 @@ img {
 
   .nav a {
     display: block;
+
     padding: 12px 10px;
+
     font-size: 15px;
   }
 
@@ -592,7 +851,7 @@ img {
   }
 
 
-  /* IMAGE */
+  /* Hero */
 
   .hero {
     padding: 40px 0 55px;
@@ -602,28 +861,39 @@ img {
     height: 350px;
   }
 
-  .hero-shop-label h2 {
-    font-size: 27px;
-  }
 
+  /* About */
 
   .about-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+
     gap: 35px;
   }
+
+
+  /* Services */
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
   }
 
+
+  /* Brands */
+
   .brands {
     grid-template-columns: repeat(2, 1fr);
   }
 
+
+  /* Second image */
+
   .shop-photo {
     height: 350px;
   }
+
+
+  /* Footer */
 
   .footer-content {
     grid-template-columns: 1fr 1fr;
@@ -642,24 +912,46 @@ img {
   }
 
 
-  /* HEADER */
+  /* Header */
+
+  .nav-wrap {
+    min-height: 68px;
+  }
 
   .logo {
     font-size: 18px;
+
     letter-spacing: 1px;
   }
 
+  .menu-btn {
+    font-size: 29px;
 
-  /* HERO */
+    padding: 6px;
+  }
+
+  .nav {
+    top: 68px;
+  }
+
+
+  /* =================================================
+     HERO MOBILE
+     ================================================= */
 
   .hero {
-    padding: 28px 0 45px;
+    padding: 24px 0 40px;
   }
 
   .hero-shop-image {
     width: 100%;
-    height: 245px;
-    border-radius: 9px;
+
+    height: 230px;
+
+    border-radius: 10px;
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.12);
   }
 
   .hero-shop-image img {
@@ -668,12 +960,16 @@ img {
 
   .hero-shop-label {
     left: 14px;
+
     right: 14px;
-    bottom: 12px;
+
+    bottom: 13px;
   }
 
   .hero-shop-label h2 {
-    font-size: 21px;
+    font-size: 22px;
+
+    margin-bottom: 3px;
   }
 
   .hero-shop-label p {
@@ -681,62 +977,132 @@ img {
   }
 
 
-  /* SECTIONS */
+  /* =================================================
+     SECTIONS MOBILE
+     ================================================= */
 
   .section {
-    padding: 60px 0;
+    padding: 55px 0;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 1.8px;
+
+    margin-bottom: 10px;
   }
 
   .section h2 {
     font-size: 34px;
+
+    margin-bottom: 23px;
   }
 
 
-  /* SERVICES */
+  /* =================================================
+     ABOUT MOBILE
+     ================================================= */
+
+  .about-section {
+    padding-top: 50px;
+
+    padding-bottom: 55px;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+
+    line-height: 1.12;
+
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    margin-bottom: 18px;
+  }
+
+  .info-box {
+    padding: 23px;
+
+    margin-top: 2px;
+  }
+
+  .info-box strong {
+    font-size: 21px;
+  }
+
+
+  /* =================================================
+     SERVICES MOBILE
+     ================================================= */
 
   .cards {
     grid-template-columns: 1fr;
+
     gap: 12px;
   }
 
   .card {
     min-height: auto;
+
     padding: 22px;
   }
 
+  .icon {
+    margin-bottom: 13px;
+  }
 
-  /* BRANDS */
+
+  /* =================================================
+     BRANDS MOBILE
+     ================================================= */
 
   .brands {
     grid-template-columns: repeat(2, 1fr);
+
     gap: 10px;
   }
 
   .brand-card {
     height: 135px;
+
     border-radius: 9px;
   }
 
   .brand-name {
     font-size: 17px;
+
+    letter-spacing: 0.5px;
   }
 
 
-  /* SECOND IMAGE */
+  /* =================================================
+     SECOND SHOP IMAGE MOBILE
+     ================================================= */
 
   .shop-photo {
-    height: 245px;
-    border-radius: 9px;
+    height: 230px;
+
+    border-radius: 10px;
   }
 
   .shop-photo-label {
     left: 14px;
+
     right: 14px;
-    bottom: 12px;
+
+    bottom: 13px;
   }
 
   .shop-photo-label strong {
-    font-size: 21px;
+    font-size: 22px;
+
+    margin-bottom: 2px;
   }
 
   .shop-photo-label span {
@@ -744,27 +1110,86 @@ img {
   }
 
 
-  /* CONTACT */
+  /* =================================================
+     CONTACT MOBILE
+     ================================================= */
+
+  .contact-grid {
+    gap: 28px;
+  }
+
+  .contact-card {
+    padding: 23px;
+  }
 
   .hero-actions {
     flex-direction: column;
+
+    gap: 10px;
   }
 
   .hero-actions a {
     text-align: center;
+
     width: 100%;
   }
 
 
-  /* FOOTER */
+  /* =================================================
+     FOOTER MOBILE
+     ================================================= */
 
   .footer-content {
     grid-template-columns: 1fr;
+
     gap: 30px;
+
     padding: 45px 0;
   }
 
   .footer-bottom {
     font-size: 11px;
+
+    padding: 18px 10px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 380px) {
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .hero-shop-image {
+    height: 210px;
+  }
+
+  .hero-shop-label h2 {
+    font-size: 20px;
+  }
+
+  .about-content h2 {
+    font-size: 32px;
+  }
+
+  .section h2 {
+    font-size: 31px;
+  }
+
+  .brand-card {
+    height: 120px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .shop-photo {
+    height: 210px;
   }
 }
