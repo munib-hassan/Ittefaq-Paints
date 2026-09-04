@@ -205,8 +205,6 @@ body {
   box-shadow: 0 18px 35px rgba(0, 0, 0, 0.20);
 }
 
-/* Slightly different heights for a premium layout */
-
 .paint-left {
   transform: translateY(15px) rotate(-2deg);
 }
@@ -568,7 +566,6 @@ footer strong {
   .brands {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 /* =====================================================
@@ -673,5 +670,4 @@ footer strong {
   .footer-wrap {
     flex-direction: column;
   }
-
 }
