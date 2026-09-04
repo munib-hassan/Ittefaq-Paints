@@ -1,22 +1,52 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const menuBtn = document.querySelector(".menu-btn");
-    const nav = document.querySelector(".nav");
+// ================= MOBILE MENU =================
 
-    menuBtn.addEventListener("click", function () {
-        nav.classList.toggle("open");
+const menuBtn = document.querySelector(".menu-btn");
+const nav = document.querySelector(".nav");
+
+if (menuBtn && nav) {
+
+  menuBtn.addEventListener("click", () => {
+
+    nav.classList.toggle("open");
+
+    const isOpen = nav.classList.contains("open");
+
+    menuBtn.setAttribute("aria-expanded", isOpen);
+
+    menuBtn.setAttribute(
+      "aria-label",
+      isOpen ? "Close menu" : "Open menu"
+    );
+
+  });
+
+
+  // Close menu after clicking a navigation link
+
+  nav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      nav.classList.remove("open");
+
+      menuBtn.setAttribute("aria-expanded", "false");
+
+      menuBtn.setAttribute("aria-label", "Open menu");
+
     });
 
-    const links = document.querySelectorAll(".nav a");
+  });
 
-    links.forEach(function (link) {
-        link.addEventListener("click", function () {
-            nav.classList.remove("open");
-        });
-    });
+}
 
-    const year = document.getElementById("year");
 
-    if (year) {
-        year.textContent = new Date().getFullYear();
-    }
-});
+// ================= CURRENT YEAR =================
+
+const yearElement = document.querySelector(".footer-bottom");
+
+if (yearElement) {
+
+  yearElement.innerHTML =
+    `© ${new Date().getFullYear()} ITTEFAQ PAINT. All Rights Reserved.`;
+
+}
